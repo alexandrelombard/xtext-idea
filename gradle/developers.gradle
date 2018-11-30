@@ -82,5 +82,11 @@ project {
 		developer {
 			name = 'Sebastian Zarnekow'
 		}
+		developer {
+			name = 'Alexandre Lombard'
+			email = 'alexandre.lombard@utbm.fr'
+			organization = 'UTBM'
+			organizationUrl = 'http://www.utbm.fr'
+		}
 	}
 }

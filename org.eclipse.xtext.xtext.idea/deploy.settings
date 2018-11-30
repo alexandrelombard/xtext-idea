@@ -1,0 +1,7 @@
+siteUrl = https://github.com/eclipse/xtext-idea
+gitUrl = https://github.com/alexandrelombard/xtext-idea
+version = 2.15.0
+groupId = org.eclipse.xtext
+licenses = ['EPL-1.0']
+id = org.eclipse.xtext.xtext.idea
+name = org.eclipse.xtext.xtext.idea

@@ -7,6 +7,7 @@ buildscript {
 	repositories.jcenter()
 	dependencies {
 		classpath "org.xtext:xtext-gradle-plugin:$versions.xtext_gradle_plugin"
+		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0'
 	}
 }
 

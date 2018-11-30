@@ -1,4 +1,5 @@
 apply from: "${rootDir}/gradle/idea-development.gradle"
+apply from: "deploy.gradle"
 
 dependencies {
 	compile "org.eclipse.xtend:org.eclipse.xtend.ide.common:$versions.xtext"
