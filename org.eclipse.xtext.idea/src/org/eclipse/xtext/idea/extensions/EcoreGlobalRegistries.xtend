@@ -20,24 +20,27 @@ class EcoreGlobalRegistries {
 
 	new() {
 		val packageRegistry = EPackage.Registry.INSTANCE
-		Extensions.getExtensions(EPackageEP.EP_NAME).forEach [
-			packageRegistry.put(nsURI, createDescriptor)
-		]
+		// FIXME Temporarily commented
+		//Extensions.getExtensions(EPackageEP.EP_NAME).forEach [
+		//	packageRegistry.put(nsURI, createDescriptor)
+		//]
 
 		val extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.extensionToFactoryMap
-		Extensions.getExtensions(ResourceFactoryEP.EP_NAME).forEach [
-			extensionToFactoryMap.put(type, createDescriptor)
-		]
+		// FIXME Temporarily commented
+		//Extensions.getExtensions(ResourceFactoryEP.EP_NAME).forEach [
+		//	extensionToFactoryMap.put(type, createDescriptor)
+		//]
 
 		val registry = IResourceServiceProvider.Registry.INSTANCE
-		Extensions.getExtensions(ResourceServiceProviderEP.EP_NAME).forEach [
-			if (uriExtension !== null)
-				registry.extensionToFactoryMap.put(uriExtension, createDescriptor)
-			if (protocolName !== null)
-				registry.protocolToFactoryMap.put(protocolName, createDescriptor)
-			if (contentTypeIdentifier !== null)
-				registry.contentTypeToFactoryMap.put(contentTypeIdentifier, createDescriptor)
-		]
+		// FIXME Temporarily commented
+		//Extensions.getExtensions(ResourceServiceProviderEP.EP_NAME).forEach [
+		//	if (uriExtension !== null)
+		//		registry.extensionToFactoryMap.put(uriExtension, createDescriptor)
+		//	if (protocolName !== null)
+		//		registry.protocolToFactoryMap.put(protocolName, createDescriptor)
+		//	if (contentTypeIdentifier !== null)
+		//		registry.contentTypeToFactoryMap.put(contentTypeIdentifier, createDescriptor)
+		//]
 	}
 
 	static def ensureInitialized() {
