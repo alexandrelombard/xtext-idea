@@ -21,7 +21,6 @@ import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.openapi.components.StoragePathMacros
-import com.intellij.openapi.components.StorageScheme
 import com.intellij.openapi.editor.EditorFactory
 import com.intellij.openapi.editor.event.DocumentAdapter
 import com.intellij.openapi.editor.event.DocumentEvent
@@ -95,13 +94,7 @@ import static extension org.eclipse.xtext.idea.resource.VirtualFileURIUtil.*
 	name='XtextAutoBuilderState', 
 	storages = #[
 		@Storage(
-			id="other", 
-			file = StoragePathMacros.WORKSPACE_FILE
-		),
-		@Storage(
-			id = "dir", 
-			file = StoragePathMacros.PROJECT_CONFIG_DIR + "/xtextAutoBuilderState.xml", 
-			scheme = StorageScheme.DIRECTORY_BASED
+			StoragePathMacros.WORKSPACE_FILE
 		)])
 @Log class XtextAutoBuilderComponent extends AbstractProjectComponent implements Disposable, PersistentStateComponent<XtextAutoBuilderComponentState> {
 	
