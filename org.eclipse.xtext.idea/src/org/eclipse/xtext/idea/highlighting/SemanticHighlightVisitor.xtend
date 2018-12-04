@@ -71,13 +71,10 @@ abstract class SemanticHighlightVisitor implements HighlightVisitor {
 		return file instanceof BaseXtextFile && languageId == file.language.ID
 	}
 
-	volatile long lastRun
-
 	override visit(PsiElement element) {
 		try {
 			if (element instanceof BaseXtextFile) {
 				val resource = element.resource
-				lastRun = resource.modificationStamp
 				highlightCalculator.provideHighlightingFor(resource, acceptor, new CancelProgressIndicator())
 			}
 		} catch (OperationCanceledError error) {

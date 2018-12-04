@@ -10,7 +10,6 @@ package org.eclipse.xtext.idea.findusages
 import com.intellij.openapi.application.QueryExecutorBase
 import com.intellij.psi.PsiReference
 import com.intellij.psi.search.searches.ReferencesSearch
-import com.intellij.psi.search.searches.ReferencesSearch.SearchParameters
 import com.intellij.util.Processor
 import org.eclipse.xtext.psi.XtextPsiElement
 

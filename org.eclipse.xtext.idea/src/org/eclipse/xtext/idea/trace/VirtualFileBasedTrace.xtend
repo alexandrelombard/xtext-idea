@@ -35,7 +35,6 @@ class VirtualFileBasedTrace extends AbstractTrace implements IIdeaTrace {
 	
 	VirtualFileInProject localVirtualFile
 	IdeaOutputConfigurationProvider outputConfigurationProvider
-	IdeaProjectConfigProvider projectConfigProvider
 	
 	@Accessors(PROTECTED_SETTER, PUBLIC_GETTER) IdeaProjectConfig localProjectConfig
 	@Accessors(PROTECTED_SETTER, PUBLIC_GETTER) VirtualFile jarRoot
