@@ -69,7 +69,7 @@ class XtendProjectConfigurator extends XtextProjectConfigurator {
 				override protected run() throws Throwable {
 					rootModel.module.setupGradleBuild(buildFile)
 				}
-			}.execute
+			}.run()
 		}
 	}
 

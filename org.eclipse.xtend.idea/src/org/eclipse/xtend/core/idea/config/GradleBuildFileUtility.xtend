@@ -57,7 +57,7 @@ class GradleBuildFileUtility {
 				val scope = if(isTestScope) "testCompile" else "compile"
 				buildFile.addDependency('''«scope» '«XtendLibraryConfigurator.xtendLibMavenId.key»' ''')
 			}
-		}.execute
+		}.run()
 
 	}
 

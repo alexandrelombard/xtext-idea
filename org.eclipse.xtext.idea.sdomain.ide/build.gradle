@@ -1,5 +1,5 @@
 apply from: "${rootDir}/gradle/eclipse-project-layout.gradle"
-apply from: "deploy.gradle"
+//apply from: "deploy.gradle"
 
 dependencies {
 	compile project(':org.eclipse.xtext.idea.sdomain')

@@ -20,6 +20,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.parser.IEncodingProvider;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.workspace.FileProjectConfig;
+import org.eclipse.xtext.workspace.IProjectConfig;
 import org.eclipse.xtext.workspace.IProjectConfigProvider;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -48,20 +49,26 @@ public class JavaIoFileSystemTest {
     try {
       final File tempDir = this.temporaryFolder.newFolder();
       JavaIOFileSystemSupport _javaIOFileSystemSupport = new JavaIOFileSystemSupport();
-      final Procedure1<JavaIOFileSystemSupport> _function = (JavaIOFileSystemSupport it) -> {
-        final IProjectConfigProvider _function_1 = (ResourceSet it_1) -> {
-          File _file = new File(tempDir, "foo");
-          FileProjectConfig _fileProjectConfig = new FileProjectConfig(_file);
-          final Procedure1<FileProjectConfig> _function_2 = (FileProjectConfig it_2) -> {
-            it_2.addSourceFolder("src");
+      final Procedure1<JavaIOFileSystemSupport> _function = new Procedure1<JavaIOFileSystemSupport>() {
+        public void apply(final JavaIOFileSystemSupport it) {
+          final IProjectConfigProvider _function = new IProjectConfigProvider() {
+            public IProjectConfig getProjectConfig(final ResourceSet it) {
+              File _file = new File(tempDir, "foo");
+              FileProjectConfig _fileProjectConfig = new FileProjectConfig(_file);
+              final Procedure1<FileProjectConfig> _function = new Procedure1<FileProjectConfig>() {
+                public void apply(final FileProjectConfig it) {
+                  it.addSourceFolder("src");
+                }
+              };
+              return ObjectExtensions.<FileProjectConfig>operator_doubleArrow(_fileProjectConfig, _function);
+            }
           };
-          return ObjectExtensions.<FileProjectConfig>operator_doubleArrow(_fileProjectConfig, _function_2);
-        };
-        it.setProjectConfigProvider(_function_1);
-        IEncodingProvider.Runtime _runtime = new IEncodingProvider.Runtime();
-        it.setEncodingProvider(_runtime);
-        XtextResourceSet _xtextResourceSet = new XtextResourceSet();
-        it.setContext(_xtextResourceSet);
+          it.setProjectConfigProvider(_function);
+          IEncodingProvider.Runtime _runtime = new IEncodingProvider.Runtime();
+          it.setEncodingProvider(_runtime);
+          XtextResourceSet _xtextResourceSet = new XtextResourceSet();
+          it.setContext(_xtextResourceSet);
+        }
       };
       JavaIOFileSystemSupport _doubleArrow = ObjectExtensions.<JavaIOFileSystemSupport>operator_doubleArrow(_javaIOFileSystemSupport, _function);
       this.fs = _doubleArrow;
@@ -149,8 +156,10 @@ public class JavaIoFileSystemTest {
   
   @Test
   public void testGetWorkspaceChildren() {
-    final Function1<Path, CharSequence> _function = (Path it) -> {
-      return IterableExtensions.join(it.getSegments(), ".");
+    final Function1<Path, CharSequence> _function = new Function1<Path, CharSequence>() {
+      public CharSequence apply(final Path it) {
+        return IterableExtensions.join(it.getSegments(), ".");
+      }
     };
     Assert.assertEquals(IterableExtensions.join(this.fs.getChildren(Path.ROOT), "[", ", ", "]", _function), 1, IterableExtensions.size(this.fs.getChildren(Path.ROOT)));
   }

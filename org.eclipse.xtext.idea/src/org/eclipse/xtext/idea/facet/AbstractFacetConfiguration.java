@@ -65,14 +65,14 @@ public abstract class AbstractFacetConfiguration implements FacetConfiguration {
 		return defOutput;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void readExternal(Element element) throws InvalidDataException {
+		//
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void writeExternal(Element element) throws WriteExternalException {
+		//
 	}
 
 }

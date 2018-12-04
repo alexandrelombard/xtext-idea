@@ -48,7 +48,7 @@ class MavenUtility {
 					}
 				}
 
-			}.execute()
+			}.run()
 		}
 
 		def boolean isMavenizedModule(Module module) {

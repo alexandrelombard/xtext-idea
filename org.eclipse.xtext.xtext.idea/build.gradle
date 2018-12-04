@@ -1,6 +1,6 @@
 apply from: "${rootDir}/gradle/eclipse-project-layout.gradle"
 apply from: "${rootDir}/gradle/idea-development.gradle"
-apply from: "deploy.gradle"
+//apply from: "deploy.gradle"
 
 dependencies {
 	compile "org.eclipse.xtext:org.eclipse.xtext.xtext.ide:$versions.xtext"

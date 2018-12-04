@@ -30,9 +30,8 @@ class XtendFrameworkSupportProvider extends FrameworkSupportInModuleProvider {
 	override createConfigurable(FrameworkSupportModel model) {
 		xtendSupportConfigurableProvider.get
 	}
-
+	
 	override isEnabledForModuleType(ModuleType moduleType) {
 		moduleType instanceof JavaModuleType
 	}
-
 }
