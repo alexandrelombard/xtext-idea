@@ -80,7 +80,7 @@ class TraceBasedApplicationConfigurationProducer extends JavaRunConfigurationPro
 
 	def private void setupConfiguration(ApplicationConfiguration configuration, PsiClass aClass,
 		ConfigurationContext context) {
-		configuration.MAIN_CLASS_NAME = JavaExecutionUtil.getRuntimeQualifiedName(aClass)
+		configuration.mainClassName = JavaExecutionUtil.getRuntimeQualifiedName(aClass)
 		configuration.setGeneratedName()
 		setupConfigurationModule(context, configuration)
 	}
@@ -99,7 +99,7 @@ class TraceBasedApplicationConfigurationProducer extends JavaRunConfigurationPro
 		val PsiElement location = context.getPsiLocation()
 		val PsiClass aClass = ApplicationConfigurationType.getMainClass(location)
 		if (aClass !== null &&
-			Comparing.equal(JavaExecutionUtil.getRuntimeQualifiedName(aClass), appConfiguration.MAIN_CLASS_NAME)) {
+			Comparing.equal(JavaExecutionUtil.getRuntimeQualifiedName(aClass), appConfiguration.mainClassName)) {
 			val PsiMethod method = PsiTreeUtil.getParentOfType(location, PsiMethod, false)
 			if (method !== null && TestFrameworks.getInstance().isTestMethod(method)) {
 				return false

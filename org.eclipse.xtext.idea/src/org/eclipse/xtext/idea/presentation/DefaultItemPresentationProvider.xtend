@@ -35,11 +35,11 @@ class DefaultItemPresentationProvider implements ItemPresentationProvider {
 	}
 	
 	def dispatch Icon image(Void element) {
-		AllIcons.General.SecondaryGroup
+		AllIcons.General.GearPlain
 	}
 	
 	def dispatch Icon image(Object element) {
-		AllIcons.General.SecondaryGroup
+		AllIcons.General.GearPlain
 	}
 	
 	def dispatch Icon image(EObject element) {

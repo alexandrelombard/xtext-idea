@@ -109,7 +109,7 @@ class PsiEObjectImpl<PsiT extends PsiElement, T extends StubElement<PsiT>> exten
 	}
 
 	override protected Icon getElementIcon(int flags) {
-		return AllIcons.General.SecondaryGroup
+		return AllIcons.General.GearPlain
 	}
 
 	override String toString() {

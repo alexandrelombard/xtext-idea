@@ -11,7 +11,6 @@ import com.google.inject.Inject
 import com.intellij.find.findUsages.FindUsagesHandler
 import com.intellij.find.findUsages.FindUsagesHandlerFactory
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.openapi.extensions.Extensions
 import com.intellij.openapi.progress.ProcessCanceledException
 import com.intellij.openapi.project.IndexNotReadyException
 import com.intellij.psi.PsiElement
@@ -38,7 +37,7 @@ class GeneratedSourceAwareUsagesHandlerFactory extends FindUsagesHandlerFactory 
 	}
 	
 	override canFindUsages(PsiElement element) {
-		var delegates = Extensions.getExtensions(FindUsagesHandlerFactory.EP_NAME, element.project);
+		var delegates = FindUsagesHandlerFactory.EP_NAME.getExtensionList(element.project)
 		for(delegate: delegates) {
 			if (delegate !== this) {
 				try {
@@ -115,7 +114,7 @@ class GeneratedSourceAwareUsagesHandlerFactory extends FindUsagesHandlerFactory 
 	}
 	
 	protected def delegateFindUsagesHandler(PsiElement element) {
-		var delegates = Extensions.getExtensions(FindUsagesHandlerFactory.EP_NAME, element.project);
+		var delegates = FindUsagesHandlerFactory.EP_NAME.getExtensionList(element.project)
 		for(delegate: delegates) {
 			if (delegate !== this) {
 				try {
