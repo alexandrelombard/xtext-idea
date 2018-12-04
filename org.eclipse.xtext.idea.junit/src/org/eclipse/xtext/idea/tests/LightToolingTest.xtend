@@ -179,16 +179,18 @@ class LightToolingTest extends LightCodeInsightFixtureTestCase {
 		myFixture.file as BaseXtextFile
 	}
 
-	protected def void testStructureView(String model, String expected) {
-		testStructureView(model) [ component |
-			component.assertTreeStructure(expected)
-		]
-	}
+	// FIXME Temporarily commented
+	//protected def void testStructureView(String model, String expected) {
+	//	testStructureView(model) [ component |
+	//		component.assertTreeStructure(expected)
+	//	]
+	//}
 
-	protected def assertTreeStructure(StructureViewComponent component, String expected) {
-		component.tree.expandAll
-		component.treeStructure.assertTreeStructureEquals(expected)
-	}
+	// FIXME Temporarily commented
+	//protected def assertTreeStructure(StructureViewComponent component, String expected) {
+	//	component.tree.expandAll
+	//	component.treeStructure.assertTreeStructureEquals(expected)
+	//}
 
 	protected def void testStructureView(String model, Consumer<StructureViewComponent> consumer) {
 		myFixture.configureByText(fileType, model)
