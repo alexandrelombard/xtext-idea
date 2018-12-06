@@ -1,8 +1,8 @@
 <idea-plugin version="2">
-	<id>org.eclipse.xtext.idea</id>
-	<name>Xtext IDEA Core</name>
+	<id>com.github.alexandrelombard.org.eclipse.xtext.idea</id>
+	<name>Xtext IDEA Core (fork)</name>
 	<description>Xtext IDEA Core.</description>
-	<version>2.15.0</version>
+	<version>2.15.0-5</version>
 	<vendor url="http://xtext.org" logo="/icons/dsl-package_16.png">Eclipse Xtext</vendor>
 	<category>Custom Languages</category>
 	<idea-version since-build="145"/>
@@ -36,15 +36,15 @@
 	</application-components>
 
 	<extensionPoints>
-		<extensionPoint name="lang.setup" beanClass="com.intellij.lang.LanguageExtensionPoint">
+		<extensionPoint qualifiedName="org.eclipse.xtext.idea.lang.setup" beanClass="com.intellij.lang.LanguageExtensionPoint">
 			<with attribute="implementationClass" implements="org.eclipse.xtext.ISetup"/>
 		</extensionPoint>
 
-		<extensionPoint name="package" beanClass="org.eclipse.xtext.idea.extensions.EPackageEP"/>
-		<extensionPoint name="resourceFactory" beanClass="org.eclipse.xtext.idea.extensions.ResourceFactoryEP"/>
-		<extensionPoint name="resourceServiceProvider" beanClass="org.eclipse.xtext.idea.extensions.ResourceServiceProviderEP"/>
+		<extensionPoint qualifiedName="org.eclipse.xtext.idea.package" beanClass="org.eclipse.xtext.idea.extensions.EPackageEP" />
+		<extensionPoint qualifiedName="org.eclipse.xtext.idea.resourceFactory" beanClass="org.eclipse.xtext.idea.extensions.ResourceFactoryEP" />
+		<extensionPoint qualifiedName="org.eclipse.xtext.idea.resourceServiceProvider" beanClass="org.eclipse.xtext.idea.extensions.ResourceServiceProviderEP" />
 
-		<extensionPoint name="lang.editor.autoEditHandler" beanClass="com.intellij.lang.LanguageExtensionPoint">
+		<extensionPoint qualifiedName="org.eclipse.xtext.idea.lang.editor.autoEditHandler" beanClass="com.intellij.lang.LanguageExtensionPoint">
 			<with attribute="implementationClass" implements="org.eclipse.xtext.idea.editorActions.IdeaAutoEditHandler"/>
 		</extensionPoint>
 	</extensionPoints>
