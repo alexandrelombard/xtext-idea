@@ -1,17 +1,53 @@
-apply from: "${rootDir}/gradle/eclipse-project-layout.gradle"
-apply from: "${rootDir}/gradle/idea-development.gradle"
-//apply from: "deploy.gradle"
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'org.jetbrains.intellij' version '0.3.12'
+    id 'java-library'
+}
+
+//apply from: 'deploy.gradle'
+
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+intellij {
+    // For a full list of IntelliJ IDEA releases please see https://www.jetbrains.com/intellij-repository/releases
+    version '183.4588.3'
+    // Bundled plugin dependencies
+    plugins 'coverage', 'JUnit'
+    pluginName 'com.github.alexandrelombard.org.eclipse.xtext.idea'
+    sandboxDirectory = "$project.buildDir/sandbox"
+
+}
+
+group 'org.eclipse.xtext.idea'
+version '2.15.0-8' // Plugin version
+
+sourceSets {
+    main.java.srcDirs = ['src', 'src-gen', 'xtend-gen']
+    main.resources.srcDirs = ['resources']
+}
 
 repositories {
-	mavenCentral()
-	jcenter()
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url "https://dl.bintray.com/alexandrelombard/maven" }
 }
 
 dependencies {
-	compile "org.eclipse.xtext:org.eclipse.xtext.xbase.ide:$versions.xtext"
+    compile "org.eclipse.xtext:org.eclipse.xtext.xbase.ide:$versions.xtext"
 	compile "org.eclipse.xtext:org.eclipse.xtext.ecore:$versions.xtext"
 	
 	compile "org.eclipse.xtend:org.eclipse.xtend.core:$versions.xtext"
     compile "org.eclipse.xtend:org.eclipse.xtend.lib:$versions.xtext"
     compile "org.eclipse.xtend:org.eclipse.xtend.ide.common:$versions.xtext"
+    
+    compile files(org.gradle.internal.jvm.Jvm.current().toolsJar)
 }

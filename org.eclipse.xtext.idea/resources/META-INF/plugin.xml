@@ -2,7 +2,7 @@
 	<id>com.github.alexandrelombard.org.eclipse.xtext.idea</id>
 	<name>Xtext IDEA Core (fork)</name>
 	<description>Xtext IDEA Core.</description>
-	<version>2.15.0-7</version>
+	<version>2.15.0-8</version>
 	<vendor url="http://xtext.org" logo="/icons/dsl-package_16.png">Eclipse Xtext</vendor>
 	<category>Custom Languages</category>
 	<idea-version since-build="145"/>

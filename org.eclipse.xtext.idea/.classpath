@@ -139,7 +139,7 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/NVPACK/jdk1.8.0_77/lib/tools.jar">
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_172/lib/tools.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,mwe2,test"/>
 		</attributes>
